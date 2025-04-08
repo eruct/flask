@@ -1,0 +1,163 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        form:hover {
+            transform: translateY(-5px);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6c5ce7;
+            outline: none;
+        }
+
+        button {
+            background: linear-gradient(45deg, #6c5ce7, #a363d9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(108,92,231,0.4);
+        }
+
+        .comments {
+            margin-top: 2rem;
+        }
+
+        .comment {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            animation: slideIn 0.5s ease-out;
+            position: relative;
+        }
+
+        .comment:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comment::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #6c5ce7;
+            border-radius: 2px;
+        }
+
+        .comment h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .comment small {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .comment p {
+            color: #34495e;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: #6c5ce7;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .pagination a:hover {
+            background: #5b4bc4;
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+
+            form {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
