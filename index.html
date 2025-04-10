@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-body">
+        <h3 class="card-title mb-4">Добавить задачу</h3>
+        <form action="{{ url_for('create_task') }}" method="post">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Название</label>
+                <input type="text" name="title" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold">Описание</label>
+                <textarea name="description" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary px-4">Добавить</button>
+        </form>
+    </div>
+</div>
+
+{% if tasks %}
+<div class="list-group">
+    {% for task in tasks %}
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <h5 class="mb-1 fw-bold">{{ task.title }}</h5>
+            <p class="mb-1 text-muted">{{ task.description }}</p>
+        </div>
+        <div class="btn-group" role="group">
+            <a href="{{ url_for('edit_task_form', task_id=task.id) }}"
+               class="btn btn-warning btn-sm px-3 me-2">
+                Редактировать
+            </a>
+            <form action="{{ url_for('delete_task', task_id=task.id) }}" method="post">
+                <button type="submit" class="btn btn-danger btn-sm px-3">Удалить</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info">
+    <i class="bi bi-info-circle-fill me-2"></i>Задач пока нет
+</div>
+{% endif %}
+{% endblock %}

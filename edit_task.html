@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-body">
+        <h3 class="card-title mb-4">Редактировать задачу</h3>
+        <form action="{{ url_for('update_task', task_id=task.id) }}" method="post">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Название</label>
+                <input type="text" name="title" class="form-control" value="{{ task.title }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold">Описание</label>
+                <textarea name="description" class="form-control" rows="3">{{ task.description }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-success px-4 me-2">Сохранить</button>
+            <a href="{{ url_for('list_tasks') }}" class="btn btn-secondary px-4">Отмена</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
